@@ -4,8 +4,7 @@ redis: &redis
 
 development: *redis
 
-test:
-  adapter: async
+test: *redis
 
 production:
   adapter: redis
