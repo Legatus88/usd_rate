@@ -219,6 +219,7 @@ DEPENDENCIES
   nokogiri
   puma (~> 3.11)
   rails (~> 5.2.3)
+  redis (~> 4.0)
   sass-rails (~> 5.0)
   selenium-webdriver
   semantic-ui-sass
