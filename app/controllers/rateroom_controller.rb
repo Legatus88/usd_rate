@@ -1,0 +1,3 @@
+class RateroomController < ApplicationController
+
+end
