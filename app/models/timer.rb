@@ -10,10 +10,10 @@ class Timer < ApplicationRecord
   end
 
   def date_validate
-    errors.add(:date, 'is invalid') if self.date >= Date.today
+    errors.add(:date, 'is invalid') if self.date.nil? or self.date >= Date.today
   end
 
   def deadline_validate
-    errors.add(:deadline, 'is invalid') if self.deadline < Time.current
+    errors.add(:deadline, 'is invalid') if self.deadline.nil? or self.deadline < Time.current
   end
 end
