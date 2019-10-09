@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_10_07_221421) do
 
   create_table "timers", force: :cascade do |t|
+    t.text "price"
     t.date "date"
     t.datetime "deadline"
     t.datetime "created_at", null: false

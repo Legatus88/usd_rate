@@ -3,10 +3,13 @@ class ScrapJob < ApplicationJob
   queue_as :default
 
   def perform(date = '')
-    require 'open-uri'
-    doc = Nokogiri::HTML(open("https://www.cbr.ru/currency_base/daily/#{date}"))
-    price = "#{doc.css('table')[0].css('tr').select{|cell| cell.text.include? 'USD'}.first.css('td').last.text} + #{Time.now}"
+    return if delayed?
+    rate = Timer.scrape
+    ActionCable.server.broadcast "rateroom_channel", rate: rate
+  end
 
-    ActionCable.server.broadcast "rateroom_channel", foo: price
+  def delayed?
+    return false if Timer.last.nil?
+    Time.now < Timer.last.deadline
   end
 end

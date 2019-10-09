@@ -1,0 +1,36 @@
+<h1>This is timer new page</h1>
+<h2>Current time zone: <%= Time.current.zone %></h2>
+
+
+<div class="row">
+  <div class="col-md-12">
+
+    <%= form_with(model: @timer, role: "form", url: timers_path, remote: true) do |f|  %>
+
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :date %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.date_select :date, class: "form-control", default: @last_date, autofocus: true %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :deadline %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.datetime_select :deadline, rows: 10, class: "form-control", default: @last_deadline, autofocus: true %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.submit class: "btn btn-primary btn-lg" %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>

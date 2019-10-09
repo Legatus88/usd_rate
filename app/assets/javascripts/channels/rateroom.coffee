@@ -6,4 +6,4 @@ App.rateroom = App.cable.subscriptions.create "RateroomChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    $('#rate-container').empty().append(data['foo'])
+    $('#rate-container').empty().append(data['rate'])

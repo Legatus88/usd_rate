@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  root "rateroom#index"
+  root 'rateroom#index'
 
-  get 'admin', to: 'rateroom#admin'
+  resources :timers, except: [:new]
+  get 'admin', to: 'timers#new'
 
   mount ActionCable.server, at: '/cable'
 end
