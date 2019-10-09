@@ -7,10 +7,17 @@ class TimersController < ApplicationController
   end
 
   def create
-    timer = Timer.new(timer_params)
-    if timer.save
-      redirect_to root_path
-      ActionCable.server.broadcast "rateroom_channel", rate: Timer.scrape(timer.date.strftime("%d.%m.%Y"))
+    @timer = Timer.new(timer_params)
+    respond_to do |format|
+      if @timer.save
+        format.html { redirect_to root_path }
+        format.json { render :show, status: :created, location: @timer }
+
+        ActionCable.server.broadcast "rateroom_channel", rate: Timer.scrape(@timer.date.strftime("%d.%m.%Y"))
+      else
+        format.html { render :new }
+        format.json { render json: @timer.errors, status: :unprocessable_entity }
+      end
     end
   end
 
