@@ -11,7 +11,7 @@ RSpec.feature "Rate Features", type: :feature do
         find('#timer_date_1i').all(:css, 'option').find { |o| o.value == '2024' }.select_option
         find('#timer_deadline_5i').all(:css, 'option').find { |o| o.value == "#{(Time.current - 5.minute).strftime("%M")}" }.select_option
       end
-      click_button "Create Timer"
+      click_button "SHOW"
 
       expect(page).to have_content 'Date is invalid'
       expect(page).to have_content 'Deadline is invalid'
@@ -24,7 +24,7 @@ RSpec.feature "Rate Features", type: :feature do
         find('#timer_date_3i').all(:css, 'option').find { |o| o.value == "1" }.select_option
         find('#timer_deadline_5i').all(:css, 'option').find { |o| o.value == "#{(Time.current + 5.minute).strftime("%M")}" }.select_option
       end
-      click_button "Create Timer"
+      click_button "SHOW"
 
       expect(page).to have_current_path(root_path)
       expect(page).to have_content '56,2376'
@@ -37,7 +37,7 @@ RSpec.feature "Rate Features", type: :feature do
 
         find('#timer_deadline_5i').all(:css, 'option').find { |o| o.value == "#{(Time.current + 5.minute).strftime("%M")}" }.select_option
       end
-      click_button "Create Timer"
+      click_button "SHOW"
 
       expect(page).to have_current_path(root_path)
 

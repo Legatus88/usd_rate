@@ -1,5 +1,6 @@
-<h2>Current time zone: <%= Time.current.zone %></h2>
-<h3>Current time: <%= Time.current.strftime("%H:%M") %></h3>
+<div>
+  Current time: <%= Time.current.strftime("%H:%M") %> <%= Time.current.zone %>
+</div>
 
 <div class="row">
   <div class="col-md-12">
@@ -9,20 +10,18 @@
       <% if @timer.errors.any? %>
 
         <div class="ui form">
-          <div id="error_explanation" class="ui message">
-            <div class="header"><%= pluralize(@timer.errors.count, "error") %>:</div>
-            <ul class="list">
+          <div id="error_explanation">
+            <div class="header"><%= pluralize(@timer.errors.count, "error") %>:</div><br>
               <% @timer.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
+                <span><%= msg %></span><br>
               <% end %>
-            </ul>
           </div>
         </div>
       <% end %>
 
       <div class="form-group">
         <div class="control-label col-sm-2">
-          <%= f.label :date %>
+          <%= f.label :date, "FIND USD RATE:", class: "labels" %>
         </div>
         <div class="col-sm-8">
           <%= f.date_select :date, class: "form-control", default: @last_date, autofocus: true %>
@@ -31,7 +30,7 @@
 
       <div class="form-group">
         <div class="control-label col-sm-2">
-          <%= f.label :deadline %>
+          <%= f.label :deadline, "HOLD UNTIL:", class: "labels" %>
         </div>
         <div class="col-sm-8">
           <%= f.datetime_select :deadline, rows: 10, class: "form-control", default: @last_deadline, autofocus: true %>
@@ -40,10 +39,17 @@
 
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <%= f.submit class: "btn btn-primary btn-lg" %>
+          <%= f.submit "SHOW", class: "button_to_root" %>
         </div>
       </div>
     <% end %>
 
+  </div>
+  <br>
+  <div>
+    <span>or</span>
+    <br>
+    <br>
+    <a class='back' href="/">BACK</a>
   </div>
 </div>

@@ -1,1 +1,90 @@
 @import "semantic-ui";
+
+@font-face {
+font-family: 'a_lcdnova';
+src:font-url('a_lcdnova.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+
+body {
+  font-family: 'a_lcdnova';
+  background: black;
+  color: white;
+}
+
+#rate-container {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 100pt;
+  text-shadow: yellow 0 0 15px;
+  position: absolute;
+  top: 50%;
+  margin-top: -0.625em;
+  width: 100%
+}
+
+.div_to_admin {
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  font-size: 34pt;
+  text-shadow: yellow 0 0 15px;
+  top: 50%;
+  margin-top: 1.375em;
+  width: 100%
+}
+
+.button_to_admin, .button_to_root {
+  text-decoration: none;
+  color: inherit;
+  border: 3px solid white;
+  border-radius: 4px;
+  padding: 12px;
+  box-shadow: yellow 0 0 15px;
+}
+
+.button_to_root {
+  background: black;
+}
+
+.row {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 12pt;
+  text-shadow: yellow 0 0 15px;
+  position: absolute;
+  top: 50%;
+  margin-top: -8.625em;
+  width: 100%
+}
+
+.labels {
+  font-size: 50pt;
+
+}
+
+.col-sm-8, .col-sm-10 {
+  margin-top: 1em;
+}
+
+.col-sm-2 {
+  margin-top: 3em;
+}
+
+.col-md-12, .labels, .col-sm-10  {
+  margin-top: 0.6em;
+}
+
+#error_explanation {
+  color: #f51616;
+  text-shadow: red 0 0 19em;
+  background: black;
+  width: 30%;
+  display: inline-block;
+}
+
+.back {
+  font-size: 20pt;
+  color: inherit;
+}
