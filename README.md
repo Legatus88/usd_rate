@@ -1,24 +1,19 @@
-# README
+# USD Rate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This small app scraps USD rate from ***'www.cbr.ru'*** and shows it on the home page.
 
-Things you may want to cover:
+Every minute it scraps in again and update in without page refreshing on all opened pages.
 
-* Ruby version
+It also can find you a rate by different date and don't refresh it for some time.
 
-* System dependencies
+You can define a period. After the deadline it will continue to refresh it on the home page.
 
-* Configuration
+## Usage
 
-* Database creation
+This app uses Redis, so you need to run it first.
 
-* Database initialization
+Or you can just start the ***foreman*** :)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+foreman start -f Procfile
+```
