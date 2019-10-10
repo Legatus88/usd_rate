@@ -64,15 +64,19 @@ body {
 
 }
 
-.col-sm-8, .col-sm-10 {
+.col-sm-8 {
   margin-top: 1em;
+}
+
+.col-sm-10 {
+  margin-top: 2em;
 }
 
 .col-sm-2 {
   margin-top: 3em;
 }
 
-.col-md-12, .labels, .col-sm-10  {
+.col-md-12, .labels  {
   margin-top: 0.6em;
 }
 
